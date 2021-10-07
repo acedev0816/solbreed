@@ -3,6 +3,7 @@ import {
   useWallet,
   WalletProvider as BaseWalletProvider,
 } from '@solana/wallet-adapter-react';
+
 import {
   getLedgerWallet,
   getMathWallet,
@@ -13,7 +14,7 @@ import {
   getTorusWallet,
   WalletName,
 } from '@solana/wallet-adapter-wallets';
-import { Button } from 'antd';
+import { Button, Image } from 'antd';
 import React, {
   createContext,
   FC,
@@ -51,29 +52,13 @@ export const WalletModal: FC = () => {
 
   return (
     <MetaplexModal visible={visible} onCancel={close}>
-      <div
-        style={{
-          background:
-            'linear-gradient(180deg, #D329FC 0%, #8F6DDE 49.48%, #19E6AD 100%)',
-          borderRadius: 36,
-          width: 50,
-          height: 50,
-          textAlign: 'center',
-          verticalAlign: 'middle',
-          fontWeight: 700,
-          fontSize: '1.3rem',
-          lineHeight: 2.4,
-          marginBottom: 10,
-        }}
-      >
-        M
-      </div>
+      <Image width={50} height={50} preview={false} src="/img/logo.png" />
 
-      <h2>{selected ? 'Change provider' : 'Welcome to Metaplex'}</h2>
+      <h2>{selected ? 'Change provider' : 'Choose provider'}</h2>
       <p>
         {selected
           ? 'Feel free to switch wallet provider'
-          : 'You must be signed in to place a bid'}
+          : 'You must be signed in to see nft items'}
       </p>
 
       <br />

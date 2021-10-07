@@ -1,11 +1,16 @@
 .App-Bar {
+  background-color: white;
   padding: 0px;
   justify-content: space-between !important;
 }
-
+@media only screen and (min-width: 600px) {
+  .App-Bar {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
 .app-bar-box {
-  background: #121212;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  // background: #121212;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -16,8 +21,22 @@
 
 .app-left {
   padding: 8px 10px;
+  background-color: transparent;
+  h2 {
+    font-size: 2rem;
+    margin: 0px;
+    margin-left:10px;
+    color:white;
+  }
 }
-
+@media only screen and (max-width: 600px) {
+  .app-left h2{
+    display:none;
+  }
+}
+.app-right {
+  background-color: transparent;
+}
 .title {
   font-style: normal;
   font-weight: 600;
@@ -34,7 +53,7 @@
 }
 
 .divider {
-  border-left: 1px solid #282828;
+  border-left: 1px solid #4e14ff;
   width: 2px;
   height: 40px;
   margin-right: 14px;
@@ -43,11 +62,33 @@
 .app-btn {
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 19px;
   border-width: 0px;
+  color:white;
+  display: flex;
+  align-items: center;
+  width:150px;
+  text-align: center;
+  justify-content: center;
 }
 
+@media only screen and (min-width: 600px) {
+  .app-btn{
+    margin-left: 30px;
+  }
+}
+
+.app-btn:hover{
+  color:white;
+}
+.app-btn:focus{
+  color:white;
+  
+}
+.app-btn:focus{
+  border-bottom: 2px solid #4caf50;
+}
 .app-bar-inner {
   display: flex;
   min-width: 50%;
@@ -58,7 +99,7 @@
     cursor: pointer;
     padding: 0 30px;
     color: @tungsten-60;
-    font-size: 18px;
+    font-size: 24px;
     a {
       color: inherit;
     }

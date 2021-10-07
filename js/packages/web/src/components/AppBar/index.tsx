@@ -7,7 +7,7 @@ import { Notifications } from '../Notifications';
 import useWindowDimensions from '../../utils/layout';
 import { MenuOutlined } from '@ant-design/icons';
 import { useMeta } from '../../contexts';
-
+import {Image} from 'antd';
 const UserActions = () => {
   const { publicKey } = useWallet();
   const { whitelistedCreatorsByCreator, store } = useMeta();
@@ -50,18 +50,14 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       style={{
         display: 'flex',
         flexDirection: vertical ? 'column' : 'row',
+        height: '100%',
       }}
     >
-      <Link to={`/`}>
-        <Button className="app-btn">Explore</Button>
+      <Link to={`/artworks`} className="app-btn">
+          {connected ? 'My NFT Items' : 'Artworks'}
       </Link>
-      <Link to={`/artworks`}>
-        <Button className="app-btn">
-          {connected ? 'My Items' : 'Artworks'}
-        </Button>
-      </Link>
-      <Link to={`/artists`}>
-        <Button className="app-btn">Creators</Button>
+      <Link to={`/about`} className="app-btn">
+       About
       </Link>
     </div>
   );
@@ -79,22 +75,17 @@ const MetaplexMenu = () => {
           placement="bottomLeft"
           trigger={['click']}
           overlay={
-            <Menu>
-              <Menu.Item>
-                <Link to={`/`}>
-                  <Button className="app-btn">Explore</Button>
-                </Link>
-              </Menu.Item>
+            <Menu >
               <Menu.Item>
                 <Link to={`/artworks`}>
-                  <Button className="app-btn">
-                    {connected ? 'My Items' : 'Artworks'}
+                  <Button className="app-btn" >
+                    {connected ? 'My NFT Items' : 'Artworks'}
                   </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <Link to={`/artists`}>
-                  <Button className="app-btn">Creators</Button>
+                <Link to={`/about`}>
+                  <Button className="app-btn">About</Button>
                 </Link>
               </Menu.Item>
             </Menu>
@@ -110,17 +101,20 @@ const MetaplexMenu = () => {
 
 export const AppBar = () => {
   const { connected } = useWallet();
-
   return (
     <>
       <div className="app-left app-bar-box">
-        {window.location.hash !== '#/analytics' && <Notifications />}
-        <div className="divider" />
-        <MetaplexMenu />
+        <Image
+          width={80}
+          preview={false}
+          src="/img/logo.png"
+        />
+        <h2> SolBreed </h2>
       </div>
       {connected ? (
         <div className="app-right app-bar-box">
-          <UserActions />
+          {/* <UserActions /> */}
+          <MetaplexMenu />
           <CurrentUserBadge
             showBalance={false}
             showAddress={false}
@@ -133,3 +127,4 @@ export const AppBar = () => {
     </>
   );
 };
+//acer

@@ -489,21 +489,8 @@ export function Notifications() {
   );
 
   const justContent = (
-    <Popover
-      className="noty-popover"
-      placement="bottomLeft"
-      content={content}
-      trigger="click"
-    >
-      <h1 className="title">M</h1>
-    </Popover>
+      <h1 className="title">SolBreed</h1>
   );
-
-  if (notifications.length === 0) return justContent;
-  else
-    return (
-      <Badge count={notifications.length} style={{ backgroundColor: 'white' }}>
-        {justContent}
-      </Badge>
-    );
+  return justContent;
+  //acer
 }

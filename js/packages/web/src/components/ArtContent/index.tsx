@@ -1,6 +1,7 @@
 import React, { Ref, useCallback, useEffect, useState } from 'react';
 import { Image } from 'antd';
 import { MetadataCategory, MetadataFile, pubkeyToString } from '@oyster/common';
+
 import { MeshViewer } from '../MeshViewer';
 import { ThreeDots } from '../MyLoader';
 import { useCachedImage, useExtendedArt } from '../../hooks';
@@ -41,7 +42,7 @@ const MeshArtContent = ({
   return <MeshViewer url={renderURL} className={className} style={style} />;
 };
 
-const CachedImageContent = ({
+export const CachedImageContent = ({
   uri,
   className,
   preview,
@@ -66,7 +67,7 @@ const CachedImageContent = ({
         setLoaded(true);
       }}
       placeholder={<ThreeDots />}
-      {...(loaded ? {} : { height: 200 })}
+      {...(loaded ? {} : { height: 300 })}
     />
   );
 };
@@ -226,9 +227,8 @@ export const ArtContent = ({
   artView?: boolean;
 }) => {
   const id = pubkeyToString(pubkey);
-
   const { ref, data } = useExtendedArt(id);
-
+  // console.log('artcontent: data', data);
   if (pubkey && data) {
     uri = data.image;
     animationURL = data.animation_url;

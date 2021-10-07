@@ -155,22 +155,40 @@ export const useArt = (key?: StringPublicKey) => {
   return art;
 };
 
-export const useExtendedArt = (id?: StringPublicKey) => {
+export const useExtendedArt = (
+  id?: StringPublicKey,
+  is_detail: boolean = false,
+) => {
   const { metadata } = useMeta();
 
   const [data, setData] = useState<IMetadataExtension>();
   const { ref, inView } = useInView();
   const localStorage = useLocalStorage();
 
+  // console.log('useExtendedArt: id =', id, data);
   const key = pubkeyToString(id);
 
   const account = useMemo(
     () => metadata.find(a => a.pubkey === key),
     [key, metadata],
   );
+  // console.log('useExtendedArt: account=',account );
 
   useEffect(() => {
-    if (inView && id && !data) {
+    // console.log('useExtendedArt: useEffectHook id =', id, inView, data);
+
+    let cond = inView && id && !data;
+
+    if (is_detail) {
+      cond = !!id;
+      setData(null);
+    }
+
+    if (cond) {
+      //Acer modified
+
+      // console.log('useExtendedArt: inView && id && !data id =', id);
+
       const USE_CDN = false;
       const routeCDN = (uri: string) => {
         let result = uri;
@@ -231,7 +249,7 @@ export const useExtendedArt = (id?: StringPublicKey) => {
         }
       }
     }
-  }, [inView, id, data, setData, account]);
-
+  }, [inView, id, /*data, setData,*/ account]);
+  // console.log('useExtendedArt::before return', ref, data);
   return { ref, data };
 };

@@ -18,22 +18,26 @@
 }
 
 .edition-badge {
-  background: #3E3E3E;
-  border-radius: 8px;
-  margin: 24px 0px 24px 20px;
-  color: #FFFFFF;
-  padding: 4px 8px;
+  background: #2bcde4;
+  border-radius: 15px;
+  margin: 0px 0px 12px 12px;
+  color: #111;
+  padding: 6px 16px;
   text-align: center;
   display: inline-block;
+  font-weight: 600;
 }
 
 .art-card {
   min-width: 200px;
-  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
+  // filter: drop-shadow(0px 2px 6px rgba(74, 20, 255, 0.1));
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
-
+  padding:15px;
+  background-color:transparent;
+  border-image:conic-gradient(rgb(106, 90, 196), rgb(106, 90, 196), rgb(119, 180, 216), rgb(119, 180, 216), rgb(119, 180, 216), rgb(106, 90, 196), rgb(106, 90, 196)) 1 / 1 / 0 stretch;
+  border-width:1px;
   .ant-card-body {
     display: flex;
     flex-direction: row;
@@ -42,15 +46,13 @@
     text-align: left;
 
     /* gradients/metal */
-    background: #282828;
-    box-shadow: inset 0px 4px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 0px 0px 8px 8px;
+    background: transparent;
   }
 
   .ant-card-meta-title {
     font-size: 20px;
     font-weight: 600;
-    padding: 24px 24px 0 24px;
+    padding: 12px 12px 0 12px;
     min-height: 55px;
   }
 
@@ -58,20 +60,26 @@
     margin-left: 24px;
   }
 
-
   .ant-card-meta-description {
     // padding-bottom: 10px;
   }
 
   .ant-card-meta {
     width: 100%;
+    background-color:transparent;
   }
 
   .ant-image {
     display: block;
   }
+  .ant-image-img{
+    border-radius: 7px;
+    border: 1px solid rgb(132,27,241);
+  }
 }
-
+.art-card:hover{
+  box-shadow:-1px 10px 15px 0 rgb(0 0 0 / 50%)
+}
 .small {
   max-width: 300px;
   margin-left: auto;

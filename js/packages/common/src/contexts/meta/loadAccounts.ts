@@ -304,6 +304,7 @@ export const loadAccounts = async (connection: Connection) => {
   const loadEditions = () => pullEditions(connection, updateState, state);
 
   const loading = [
+    //Acer modified
     loadCreators().then(loadMetadata).then(loadEditions),
     loadVaults(),
     loadAuctions(),

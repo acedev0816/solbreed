@@ -6,10 +6,12 @@ section.ant-layout {
 
 header.ant-layout-header.App-Bar {
   width: 100%;
-  background: transparent;
+  background: #1e202f;
   display: flex;
   justify-content: center;
   height: 80px;
+  position:sticky;
+  
 }
 
 footer.ant-layout-footer {
@@ -21,18 +23,7 @@ footer.ant-layout-footer {
   background-color: unset;
 }
 
-a:link {
-  color: #b480eb;
-}
-a:visited {
-  color: #b480eb;
-}
-a:hover {
-  color: #b480eb;
-}
-a:active {
-  color: #b480eb;
-}
+
 
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
@@ -69,4 +60,33 @@ a:active {
 
 .ant-card-body {
   padding: 0;
+}
+
+
+.ant-modal-content
+{
+  background:transparent;
+}
+
+
+//wallet wrapper
+.wallet-wrapper{
+  background-color:#5440c2;
+  padding: 0.5rem 1rem;
+  margin-left:20px;
+  margin-right:10px;
+  
+}
+@media (max-width: 800px) {
+  .wallet-wrapper{
+    background-color:#5440c2;
+    padding: 0.2rem 0.3rem;
+  }
+}
+
+//popover : wallet select
+.ant-popover-inner
+{
+  background-color: #1e202f;
+
 }

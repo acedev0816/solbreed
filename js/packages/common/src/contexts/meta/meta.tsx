@@ -56,7 +56,7 @@ export function MetaProvider({ children = null as any }) {
       setIsLoading(true);
     }
 
-    console.log('-----> Query started');
+    console.log('-----> Query started', USE_SPEED_RUN);
 
     const nextState = !USE_SPEED_RUN
       ? await loadAccounts(connection)

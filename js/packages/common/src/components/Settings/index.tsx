@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Button, Select } from 'antd';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { ENDPOINTS, useConnectionConfig } from '../../contexts/connection';
+import {  } from '../../contexts';
 import { useWalletModal } from '../../contexts';
 import { notify, shortenAddress } from '../../utils';
 import { CopyOutlined } from '@ant-design/icons';
@@ -14,7 +15,10 @@ export const Settings = ({
   const { connected, disconnect, publicKey } = useWallet();
   const { endpoint, setEndpoint } = useConnectionConfig();
   const { setVisible } = useWalletModal();
-  const open = useCallback(() => setVisible(true), [setVisible]);
+  const open = useCallback(() => {
+    setVisible(true);
+    console.log('open clicked');
+  }, [setVisible]);
 
   return (
     <>
